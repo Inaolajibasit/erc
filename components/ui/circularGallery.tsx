@@ -493,11 +493,14 @@ interface AppConfig {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  mobileScrollEase?: number;
+  autoScrollSpeed?: number;
 }
 
 class App {
   container: HTMLElement;
   scrollSpeed: number;
+  autoScrollSpeed: number;
   scroll: {
     ease: number;
     current: number;
@@ -536,12 +539,14 @@ class App {
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      autoScrollSpeed = 0
     }: AppConfig
   ) {
     document.documentElement.classList.remove('no-js');
     this.container = container;
     this.scrollSpeed = scrollSpeed;
+    this.autoScrollSpeed = autoScrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
     this.createRenderer();
@@ -729,6 +734,7 @@ class App {
   }
 
   update() {
+    if (this.autoScrollSpeed && !this.isDown) this.scroll.target += this.autoScrollSpeed;
     this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
     const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
     if (this.medias) {
@@ -798,6 +804,8 @@ interface CircularGalleryProps {
   fontUrl?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  mobileScrollEase?: number;
+  mobileAutoScrollSpeed?: number;
 }
 
 export default function CircularGallery({
@@ -809,7 +817,9 @@ export default function CircularGallery({
   font = 'bold 30px Figtree',
   fontUrl,
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  mobileScrollEase,
+  mobileAutoScrollSpeed = 0
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -819,6 +829,8 @@ export default function CircularGallery({
     resolveFont(font, fontUrl).then(resolvedFont => {
       if (!isMounted || !containerRef.current) return;
       const resolvedBend = mobileBend !== undefined && window.matchMedia('(max-width: 47.999rem)').matches ? mobileBend : bend;
+      const resolvedScrollEase = mobileScrollEase !== undefined && window.matchMedia('(max-width: 47.999rem)').matches ? mobileScrollEase : scrollEase;
+      const resolvedAutoScroll = window.matchMedia('(max-width: 47.999rem)').matches ? mobileAutoScrollSpeed : 0;
       app = new App(containerRef.current, {
         items,
         bend: resolvedBend,
@@ -826,14 +838,15 @@ export default function CircularGallery({
         borderRadius,
         font: resolvedFont,
         scrollSpeed,
-        scrollEase
+        scrollEase: resolvedScrollEase,
+        autoScrollSpeed: resolvedAutoScroll
       });
     });
     return () => {
       isMounted = false;
       if (app) app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase]);
+  }, [items, bend, mobileBend, textColor, borderRadius, font, fontUrl, scrollSpeed, scrollEase, mobileScrollEase, mobileAutoScrollSpeed]);
   return (
     <div
       className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"

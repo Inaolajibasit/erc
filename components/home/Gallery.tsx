@@ -28,7 +28,7 @@ export default function Gallery() {
   }, [reducedMotion]);
   return <section ref={root} className={styles.section} aria-labelledby="gallery-heading">
     <div className={styles.header}><h2 id="gallery-heading">THE RUN<br />IN FRAMES.</h2><p>Selected moments from the ERC archive. Development placeholders until the community gallery is connected.</p></div>
-    {reducedMotion ? <EditorialFallback /> : <div className={styles.circular}><CircularGallery items={gallery.map((item) => ({ image: item.image.src, text: item.caption }))} bend={3.2} mobileBend={1.1} textColor="#111111" borderRadius={0.015} font="bold 30px Bebas Neue" scrollSpeed={1.8} scrollEase={0.07} /></div>}
+    {reducedMotion ? <EditorialFallback /> : <div className={styles.circular}><CircularGallery items={gallery.map((item) => ({ image: item.image.src, text: item.caption }))} bend={3.2} mobileBend={1.1} textColor="#111111" borderRadius={0.015} font="bold 30px Bebas Neue" scrollSpeed={1.8} scrollEase={0.07} mobileScrollEase={0.035} mobileAutoScrollSpeed={0.0018} /></div>}
     <Link className={styles.link} href="/community">VIEW THE COMMUNITY <span aria-hidden="true">↗</span></Link>
   </section>;
 }
