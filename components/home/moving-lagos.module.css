@@ -7,11 +7,9 @@
 .trackViewport { width: 100%; overflow: hidden; }
 .track { display: flex; width: max-content; gap: clamp(.75rem, 1.5vw, 1.5rem); padding: .6rem 0; will-change: transform; }
 .track + .track { margin-top: clamp(.5rem, 1vw, 1rem); }
-.item { flex: 0 0 clamp(17rem, 33vw, 34rem); }
-.itemPortrait { flex-basis: clamp(13rem, 22vw, 22rem); }
+.item, .itemPortrait { flex: 0 0 clamp(17rem, 33vw, 34rem); }
 .media { position: relative; overflow: hidden; background: #deded8; aspect-ratio: 16 / 10; }
-.portrait .media { aspect-ratio: 3 / 4; }
-.wide .media { aspect-ratio: 2 / 1; }
+.portrait .media, .wide .media { aspect-ratio: 16 / 10; }
 .media img, .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .media video { pointer-events: none; }
 .meta { display: grid; grid-template-columns: 1fr auto; gap: .35rem 1rem; padding-top: .7rem; font-size: .68rem; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; }
@@ -23,8 +21,7 @@
   .intro { margin-top: 2.5rem; margin-bottom: 1.5rem; }
   .intro p { max-width: 12rem; }
   .track { gap: .7rem; padding: .45rem 0; }
-  .item { flex-basis: 72vw; }
-  .itemPortrait { flex-basis: 47vw; }
+  .item, .itemPortrait { flex-basis: 72vw; }
   .meta { font-size: .64rem; }
 }
 @media (prefers-reduced-motion: reduce) {
