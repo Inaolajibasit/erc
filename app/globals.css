@@ -175,7 +175,7 @@ h1, h2, h3, .display-type {
 .mobile-navigation nav a svg { flex-shrink: 0; }
 .mobile-navigation nav a[aria-current="page"] span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 7px; }
 .mobile-navigation__cta { margin-top: 1.5rem; }
-@keyframes menu-enter { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes menu-enter { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: translateY(0); } }
 @keyframes backdrop-enter { from { opacity: 0; } to { opacity: 1; } }
 
 /* Future hero opt-in. No marker means the normal in-flow editorial shell. */
