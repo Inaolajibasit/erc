@@ -248,3 +248,4 @@
 - [ ] Browser QA
 - [ ] Image compression
 - [ ] Video optimisation
+- [x] Mobile navigation backdrop and outside-tap dismissal

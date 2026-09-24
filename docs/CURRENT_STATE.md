@@ -160,5 +160,10 @@ The temporary accent remains unconfirmed. Requested hero metadata is placed at t
 - The supplied component owns its RAF, input listeners, image loading and renderer teardown; production build passes after integration.
 - Renamed the public Stories placeholder route to `/events` and updated primary navigation and metadata accordingly.
 
+## Mobile navigation polish (2026-09-24)
+- Added a fixed, viewport-bounded mobile navigation panel below the sticky header.
+- Added a dimmed backdrop that accepts taps/clicks to close the menu while preserving Escape and route-link dismissal.
+- Kept desktop navigation and the transparent hero treatment unchanged.
+
 ## Next task
 Verify the completed homepage sections in a connected browser, then proceed to the next homepage phase.

@@ -61,6 +61,14 @@ function Navigation({ pathname }: { pathname: string }) {
           <span className="menu-toggle__symbol" aria-hidden="true" />
         </button>
       </Container>
+      {open ? (
+        <button
+          type="button"
+          className="mobile-menu-backdrop"
+          aria-label="Close navigation"
+          onClick={() => setOpen(false)}
+        />
+      ) : null}
       <div id="mobile-navigation" className="mobile-navigation" hidden={!open} data-lenis-prevent>
         <Container>
           <nav aria-label="Mobile navigation">
