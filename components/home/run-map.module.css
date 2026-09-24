@@ -1,0 +1,43 @@
+.section { padding: clamp(6rem, 13vw, 12rem) var(--gutter); background: #171817; color: #f2f2ed; overflow: hidden; }
+.header { display: flex; align-items: end; justify-content: space-between; gap: 2rem; }
+.header h2 { margin: 0; font-size: clamp(5rem, 15vw, 14rem); line-height: .72; letter-spacing: -.08em; font-weight: 500; }
+.header h2 span { display: block; }
+.header h2 span:nth-child(2) { margin-left: 16vw; }
+.header h2 span:last-child { margin-left: 6vw; }
+.header p { max-width: 15rem; margin: 0 0 .5rem; color: #a4a49e; font-size: .64rem; line-height: 1.5; letter-spacing: .1em; text-transform: uppercase; }
+.switcher { display: flex; gap: 1.5rem; margin: clamp(4rem, 8vw, 7rem) 0 1rem; border-bottom: 1px solid #454640; }
+.switcher button { padding: 0 0 .8rem; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #888982; font: inherit; font-size: .68rem; letter-spacing: .12em; cursor: pointer; }
+.switcher button:hover, .switcher button:focus-visible { color: #f2f2ed; border-bottom-color: #f2f2ed; }
+.switcher .activeTab { color: var(--accent); border-bottom-color: var(--accent); }
+.layout { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, .5fr); gap: clamp(2rem, 6vw, 7rem); align-items: start; }
+.mapFrame { position: relative; min-width: 0; padding: 1rem 0 1.5rem; border-bottom: 1px solid #454640; }
+.map { width: 100%; height: auto; display: block; overflow: visible; }
+.contour { fill: none; stroke: #393b36; stroke-width: 1; }
+.route { fill: none; stroke: #f2f2ed; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1000; animation: draw 1.3s ease both; }
+.marker { fill: var(--accent); }
+.mapNote { display: block; margin-top: 1rem; color: #888982; font-size: .55rem; letter-spacing: .1em; }
+.routeList { margin: 0; padding: 0; list-style: none; border-top: 1px solid #454640; }
+.routeList li { display: grid; grid-template-columns: 2rem 1fr; gap: .5rem; padding: 1.25rem 0; border-bottom: 1px solid #454640; }
+.routeList li > span { color: #888982; font-size: .6rem; }
+.routeList strong { font-size: .7rem; font-weight: 400; letter-spacing: .1em; }
+.routeList small { grid-column: 2; color: #888982; font-size: .62rem; letter-spacing: .1em; }
+@keyframes draw { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+@media (max-width: 47.999rem) {
+  .section { padding-top: 5.5rem; padding-bottom: 7rem; }
+  .header { display: block; }
+  .header h2 { font-size: clamp(4.8rem, 22vw, 8rem); }
+  .header h2 span:nth-child(2) { margin-left: 18vw; }
+  .header h2 span:last-child { margin-left: 8vw; }
+  .header p { margin-top: 2rem; max-width: 17rem; }
+  .switcher { margin-top: 3.5rem; }
+  .layout { display: block; }
+  .mapFrame { padding-top: .5rem; }
+  .map { min-height: 12rem; }
+  .routeList { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1rem; margin-top: 1rem; }
+  .routeList li { display: block; padding: 1rem 0; }
+  .routeList li > span, .routeList small { display: block; margin-bottom: .55rem; }
+  .routeList strong { display: block; font-size: .61rem; line-height: 1.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .route { animation: none; }
+}

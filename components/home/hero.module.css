@@ -1,0 +1,94 @@
+.scene {
+  --hero-height: max(100svh, 40rem);
+  position: relative;
+  width: 100%;
+  background: var(--background);
+}
+.stage {
+  position: relative;
+  min-height: var(--hero-height);
+}
+.frame {
+  position: relative;
+  min-height: var(--hero-height);
+  overflow: hidden;
+  isolation: isolate;
+  background: #111;
+  color: #fff;
+}
+.media, .scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.image, .video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--mobile-position);
+}
+.video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.video[data-ready="true"] { opacity: 1; }
+.scrim { background: rgb(0 0 0 / 30%); }
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: var(--hero-height);
+  width: 100%;
+  padding: calc(var(--header-height) + 5rem) var(--page-gutter) max(2rem, env(safe-area-inset-bottom));
+}
+.title {
+  margin-block: auto;
+  padding-block: 1rem;
+  font-size: clamp(4rem, min(20vw, 20svh), 14rem);
+  line-height: 0.84;
+  letter-spacing: -0.065em;
+  font-weight: 600;
+}
+.title span { display: block; }
+.bottom { display: flex; flex-direction: column; gap: 1.5rem; }
+.metadata { display: grid; gap: 0.5rem; font-size: 0.75rem; line-height: 1.6; }
+.metadata p:first-child { font-family: var(--font-geist-mono), monospace; font-size: 0.6875rem; letter-spacing: 0.03em; }
+.content .cta { --button-ink: #fff; --button-paper: #111; align-self: flex-start; }
+.playback {
+  position: absolute;
+  top: calc(var(--header-height) + 1rem);
+  right: var(--page-gutter);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 44px;
+  padding-inline: 0.75rem;
+  border: 1px solid rgb(255 255 255 / 45%);
+  background: rgb(0 0 0 / 25%);
+  font-size: 0.6875rem;
+  cursor: pointer;
+}
+.playback:hover { background: #111; }
+@media (min-width: 48rem) {
+  .bottom { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+  .metadata { font-size: 0.875rem; }
+  .metadata p:first-child { font-size: 0.75rem; }
+}
+@media (min-width: 64rem) {
+  .scene { --hero-height: max(100svh, 44rem); }
+  .content { padding-top: calc(var(--header-height) + 3rem); padding-bottom: 3rem; }
+  .image, .video { object-position: var(--desktop-position); }
+  .title { font-size: clamp(6rem, min(16vw, 21svh), 15rem); }
+}
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  /* Space is reserved in CSS before JS: no hydration-time pin spacer or CLS. */
+  .scene { min-height: calc(var(--hero-height) + 65svh); }
+  .stage { position: sticky; top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frame { transform: none !important; }
+}

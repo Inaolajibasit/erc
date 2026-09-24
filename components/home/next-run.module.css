@@ -1,0 +1,26 @@
+.section { position: relative; isolation: isolate; overflow: hidden; min-height: clamp(36rem, 88svh, 58rem); background: #171716; color: #fff; }
+.media, .scrim { position: absolute; inset: 0; }
+.media { z-index: -2; }
+.image { object-fit: cover; object-position: 50% 45%; }
+.scrim { z-index: -1; background: rgb(0 0 0 / 46%); }
+.inner { display: flex; min-height: inherit; flex-direction: column; justify-content: space-between; gap: 3rem; padding-block: clamp(3rem, 8vw, 7rem); }
+.heading { margin: 0; font-size: clamp(.75rem, 1.2vw, .875rem); font-family: var(--font-geist-mono), monospace; font-weight: 400; letter-spacing: .08em; }
+.eventName { margin-top: 1rem; max-width: 11ch; font-size: clamp(2.5rem, 7vw, 7rem); font-weight: 500; line-height: .88; letter-spacing: -.07em; }
+.timerBlock { margin-top: auto; }
+.timer { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 60rem; border-top: 1px solid rgb(255 255 255 / 55%); border-bottom: 1px solid rgb(255 255 255 / 55%); }
+.timerCell { min-width: 0; padding: clamp(.75rem, 2vw, 1.25rem) clamp(.4rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.5rem) 0; border-right: 1px solid rgb(255 255 255 / 30%); }
+.timerCell:last-child { border-right: 0; }
+.timerValue { display: block; font-size: clamp(2.4rem, 8.5vw, 8rem); font-variant-numeric: tabular-nums; font-weight: 500; line-height: .9; letter-spacing: -.08em; }
+.timerValue[data-tick="true"] { animation: timer-tick 240ms ease-out; }
+@keyframes timer-tick { 0% { opacity: .55; transform: translateY(3px); } 100% { opacity: 1; transform: translateY(0); } }
+.timerLabel { display: block; margin-top: .65rem; color: rgb(255 255 255 / 72%); font-size: .625rem; font-family: var(--font-geist-mono), monospace; letter-spacing: .08em; }
+.details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; margin-top: 1.5rem; max-width: 56rem; }
+.detail dt { color: rgb(255 255 255 / 60%); font-size: .625rem; font-family: var(--font-geist-mono), monospace; letter-spacing: .08em; }
+.detail dd { margin-top: .35rem; font-size: clamp(.8125rem, 1.2vw, 1rem); line-height: 1.35; }
+.cta { --button-ink: #fff; --button-paper: #111; margin-top: 2rem; }
+.fallback { max-width: 36rem; margin-top: auto; }
+.fallback p { max-width: 34ch; margin-top: 1rem; color: rgb(255 255 255 / 74%); font-size: var(--type-body); }
+@media (min-width: 48rem) { .inner { padding-block: clamp(4rem, 8vw, 8rem); } .eventName { margin-left: 8.333%; } .details { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.5rem; } .cta { margin-left: 8.333%; } }
+@media (max-width: 29rem) { .timerValue { font-size: clamp(2rem, 10.5vw, 2.6rem); } .timerCell { padding-right: .25rem; } .timerLabel { font-size: .58rem; } }
+@media (min-width: 64rem) { .image { object-position: 50% 50%; } .scrim { background: rgb(0 0 0 / 38%); } }
+@media (prefers-reduced-motion: reduce) { .timerValue[data-tick="true"] { animation: none; } }
