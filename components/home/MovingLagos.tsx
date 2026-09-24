@@ -62,5 +62,6 @@ export default function MovingLagos() {
     });
     return () => media.revert();
   }, []);
-  return <section ref={root} className={styles.section} aria-labelledby="moving-lagos-heading"><h2 id="moving-lagos-heading" className={styles.heading}><span>MOVING</span><span>LAGOS.</span></h2><div className={styles.intro}><p>Photography from the ERC archive, moving with the city.</p><span aria-hidden="true">Scroll / Run / Repeat</span></div><Track items={movingLagosMedia.slice(0, 4)} reverse={false} /><Track items={movingLagosMedia.slice(4)} reverse /></section>;
+  const midpoint = Math.ceil(movingLagosMedia.length / 2);
+  return <section ref={root} className={styles.section} aria-labelledby="moving-lagos-heading"><h2 id="moving-lagos-heading" className={styles.heading}><span>MOVING</span><span>LAGOS.</span></h2><div className={styles.intro}><p>Photography from the ERC archive, moving with the city.</p><span aria-hidden="true">Scroll / Run / Repeat</span></div><Track items={movingLagosMedia.slice(0, midpoint)} reverse={false} /><Track items={movingLagosMedia.slice(midpoint)} reverse /></section>;
 }
