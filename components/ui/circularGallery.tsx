@@ -791,6 +791,7 @@ class App {
 interface CircularGalleryProps {
   items?: { image: string; text: string }[];
   bend?: number;
+  mobileBend?: number;
   textColor?: string;
   borderRadius?: number;
   font?: string;
@@ -802,6 +803,7 @@ interface CircularGalleryProps {
 export default function CircularGallery({
   items,
   bend = 3,
+  mobileBend,
   textColor = '#ffffff',
   borderRadius = 0.05,
   font = 'bold 30px Figtree',
@@ -816,9 +818,10 @@ export default function CircularGallery({
     let isMounted = true;
     resolveFont(font, fontUrl).then(resolvedFont => {
       if (!isMounted || !containerRef.current) return;
+      const resolvedBend = mobileBend !== undefined && window.matchMedia('(max-width: 47.999rem)').matches ? mobileBend : bend;
       app = new App(containerRef.current, {
         items,
-        bend,
+        bend: resolvedBend,
         textColor,
         borderRadius,
         font: resolvedFont,
