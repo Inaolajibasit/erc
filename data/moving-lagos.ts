@@ -40,7 +40,7 @@ export const movingLagosMedia: MovingMedia[] = [
   },
   {
     id: "moving-05",
-    status: "placeholder",
+    status: "confirmed",
     media: { type: "image", src: "/images/image (17).jpg", alt: "Runner captured in motion" },
     timeLabel: "ARCHIVE",
     placeLabel: "LAGOS",

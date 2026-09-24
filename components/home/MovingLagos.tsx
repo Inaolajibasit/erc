@@ -45,15 +45,17 @@ export default function MovingLagos() {
     const section = root.current;
     if (!section) return;
     const media = gsap.matchMedia();
-    media.add("(prefers-reduced-motion: no-preference)", () => {
+    media.add({ mobile: "(max-width: 47.999rem)", desktop: "(min-width: 48rem)", motion: "(prefers-reduced-motion: no-preference)" }, (context) => {
+      if (!context.conditions?.motion) return;
+      const mobile = Boolean(context.conditions?.mobile);
       const tracks = Array.from(section.querySelectorAll<HTMLElement>("[data-moving-track]"));
       tracks.forEach((track) => {
         const viewport = track.parentElement;
         if (!viewport) return;
         const reverse = track.dataset.reverse === "true";
-        const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+        const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth) * (mobile ? 0.5 : 1);
         gsap.set(track, { x: reverse ? () => -distance() : 0 });
-        gsap.to(track, { x: reverse ? 0 : () => -distance(), ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 0.7, invalidateOnRefresh: true } });
+        gsap.to(track, { x: reverse ? 0 : () => -distance(), ease: "none", scrollTrigger: { trigger: section, start: mobile ? "top 85%" : "top bottom", end: mobile ? "bottom 15%" : "bottom top", scrub: mobile ? 1.5 : 0.7, invalidateOnRefresh: true } });
       });
       let refreshCall: gsap.core.Tween | undefined;
       const refresh = () => { refreshCall?.kill(); refreshCall = gsap.delayedCall(0.1, () => ScrollTrigger.refresh()); };
