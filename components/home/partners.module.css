@@ -11,7 +11,7 @@
 .logo span { font-size: clamp(.68rem, 1.1vw, 1rem); letter-spacing: .08em; }
 .logo small { color: #8f9089; font-size: .6rem; letter-spacing: .1em; }
 .pageLink { display: inline-flex; gap: .75rem; margin-top: 2rem; color: #f2f2ed; font-size: .62rem; letter-spacing: .1em; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: .35rem; }
-.pageLink span { font-size: .95rem; }
+.pageLink span { font-family: Arial, sans-serif; font-size: .95rem; font-variant-emoji: text; }
 @media (max-width: 47.999rem) {
   .section { padding-top: 5.5rem; padding-bottom: 8rem; }
   .topline span:last-child { display: none; }

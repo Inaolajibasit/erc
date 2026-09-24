@@ -23,7 +23,7 @@
 .eventTitle { font-size: clamp(1.2rem, 2vw, 2rem); line-height: 1; letter-spacing: -.04em; }
 .eventTitle small { display: block; margin-top: .5rem; color: var(--text-secondary); font-family: var(--font-geist-mono), monospace; font-size: .58rem; letter-spacing: .08em; }
 .eventCell { color: var(--text-secondary); font-family: var(--font-geist-mono), monospace; font-size: .62rem; line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; }
-.eventArrow { font-size: 1.2rem; }
+.eventArrow { font-family: Arial, sans-serif; font-size: 1.2rem; font-variant-emoji: text; }
 .empty { padding: 2rem 0; color: var(--text-secondary); font-size: .85rem; }
 @media (max-width: 47.999rem) {
   .page { padding-top: 5.5rem; }
