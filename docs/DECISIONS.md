@@ -169,5 +169,32 @@ Runs are rendered from the typed event collection and separated into featured up
 ## D036 - Mobile navigation dismissal (2026-09-24)
 The mobile menu uses a fixed panel below the sticky header with a separate dimmed backdrop. The backdrop is a real button so touch users can dismiss the menu by tapping outside it; Escape, focus loss and navigation links retain their existing close behavior. The panel is viewport-bounded with contained scrolling to avoid moving the underlying page while the menu is open, and it enters with a short top-down slide to make the mobile state feel intentional.
 
+## D037 - GPX-backed route visualization (2026-09-24)
+The Run Your City SVG now uses geometry generated from the four supplied GPX tracks. Each confirmed route keeps its source file, area, distance and meeting point in the typed route data. Geometry is normalized into the existing abstract SVG frame so the editorial map remains lightweight and avoids introducing a map provider or inventing official route labels.
+
+## D038 - Stable SVG accessibility title (2026-09-24)
+Keep the Run Your City SVG title text static across server and client renders. The selected route group remains exposed through the map frame label and visible group switcher, avoiding dynamic SVG text-node composition that can trigger hydration mismatches.
+
+## D039 - Supplied ERC link hub (2026-09-25)
+Keep externally supplied registration and community URLs in a typed `data/links.ts` collection. Present them through a dedicated `/links` page so Instagram visitors have one clear destination, while the footer links to that hub and Strava without inventing an Instagram or contact URL.
+
+## D040 - Membership-first header CTA (2026-09-27)
+The global header CTA now points to ERC's supplied membership registration form on desktop and mobile. It opens the external form in a new tab so visitors retain the ERC site context.
+
+## D041 - Homepage content boundary (2026-09-29)
+The homepage stops after Moving Lagos so it can introduce ERC without becoming a full site index. Community-specific people, stats and gallery content remains on `/community`; route exploration moves to `/runs`; partnership storytelling remains on `/partners`. This keeps each page responsible for a clear user intent while preserving all implemented content.
+
+## D042 - Poster-sourced event records (2026-09-29)
+Run Rave and Nigeria Independence Day Run are represented as confirmed records using only information visible in the supplied posters. Run Rave uses its specific Eventporte URL; the Independence Day Run keeps ticket linking unset because no specific URL was supplied. Existing media placeholders remain clearly described until the poster assets are added to the repository.
+
+## D043 - Session-scoped opening sequence (2026-09-29)
+The homepage opening uses the supplied `openingsequencevideo.mp4` as its primary visual, with the CSS/SVG runner retained only when the video fails. It runs once per browser session, uses `preload="none"` until the sequence is needed, removes itself after playback or a safety timeout, and is skipped under prefers-reduced-motion.
+
+## D044 - Opening sequence removed (2026-09-29)
+The opening sequence was removed from the homepage after review to keep the first interaction direct. Its video asset remains available but has no runtime consumer.
+
+## D045 - Explicit hero display face (2026-09-29)
+The hero title declares the Bebas Neue token directly in its scoped component styles and uses the loaded regular face. This avoids relying only on the global heading selector when component or utility styles are combined.
+
 ## D028 - Homepage performance audit (2026-09-23)
 Preserve signature motion while limiting media work to visible content. Run Types video previews no longer rely on unconditional autoplay: they use `preload="none"`, an intersection observer, and explicit pause/disconnect cleanup. Moving Lagos cancels delayed refresh work during unmount. Existing GSAP matchMedia reverts, Lenis ticker removal, Hero video visibility listener cleanup, Gallery observer cleanup and Countdown timer cleanup were reviewed and retained. Supplied raster media continues through Next/Image with responsive sizes; changing the visual system or removing the main scroll motion was not justified.

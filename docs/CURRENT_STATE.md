@@ -167,3 +167,35 @@ The temporary accent remains unconfirmed. Requested hero metadata is placed at t
 
 ## Next task
 Verify the completed homepage sections in a connected browser, then proceed to the next homepage phase.
+
+## Confirmed route geometry (2026-09-24)
+- Replaced abstract Run Your City placeholder lines with SVG paths generated from the four supplied GPX files.
+- Added confirmed route metadata for Saturday Social 5K/10K, Tuesday Social 5K/12K, including area, distance, meeting point and source GPX path.
+
+## ERC links page (2026-09-25)
+- Added a typed link collection in `data/links.ts` using the URLs supplied from ERC's Instagram profile.
+- Added `/links` as a lightweight editorial link hub for Run Rave registration, membership, impact report, Strava and Track Lab.
+- Updated the global footer to point to the link hub and confirmed Strava destination instead of placeholder anchors.
+- Updated the desktop and mobile header CTA to open the supplied membership registration form.
+
+## Homepage content boundary (2026-09-29)
+- Reduced the homepage to the core discovery sequence: Hero, Manifesto, Next Run, Run Formats and Moving Lagos.
+- Removed People of Eko, stats, route map, gallery, partner pitch and closing CTA from the homepage to reduce cognitive load.
+- Kept those content areas available in their destination pages: Community owns people/stats/gallery, Runs owns the route map, and Partners owns partnership content.
+
+## Confirmed October event content (2026-09-29)
+- Added confirmed Run Rave poster details to Events: 03 October 2026, 6:00 PM arrival, published programme and Eventporte registration URL.
+- Added the Nigeria Independence Day Run to Runs: 01 October 2026, 5KM, Sol Beach/Elegushi, published activity schedule and green/white/green dress code.
+- The Independence Day poster names Eventporte but does not provide a specific ticket URL, so its registration URL remains unset until supplied.
+
+## Homepage opening sequence (2026-09-29)
+- Added a homepage-only opening sequence using the supplied `openingsequencevideo.mp4`, with the line-running SVG figure retained as a failure fallback.
+- It plays once per browser session, locks page scrolling only during the short sequence, and bypasses itself for reduced-motion users.
+
+## Homepage opening sequence removal (2026-09-29)
+- Removed the opening sequence from the homepage at the user's request.
+- The supplied video remains in `public/video` but is no longer loaded or rendered.
+
+## Hero typography correction (2026-09-29)
+- Pinned Bebas Neue directly to the hero display title so the editorial headline cannot fall back to the body/UI face.
+- Kept the loaded 400 face and disabled synthetic font styling for the title.

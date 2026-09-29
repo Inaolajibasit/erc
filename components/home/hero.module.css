@@ -47,10 +47,12 @@
 .title {
   margin-block: auto;
   padding-block: 1rem;
+  font-family: var(--font-bebas-neue), "Bebas Neue", Impact, sans-serif;
   font-size: clamp(4rem, min(20vw, 20svh), 14rem);
   line-height: 0.84;
   letter-spacing: -0.065em;
-  font-weight: 600;
+  font-weight: 400;
+  font-synthesis: none;
 }
 .title span { display: block; }
 .bottom { display: flex; flex-direction: column; gap: 1.5rem; }

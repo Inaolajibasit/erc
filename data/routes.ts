@@ -1,15 +1,13 @@
 import type { RouteGroup, RunRoute } from "./types";
 
-/** Placeholder route geometry and labels. None are official ERC routes. */
+/** Confirmed GPX route geometry normalized into the RunMap SVG frame. */
 export const routeGroups: Record<RouteGroup, RunRoute[]> = {
   island: [
-    { id: "island-placeholder-01", status: "placeholder", name: "ISLAND LOOP / PLACEHOLDER", group: "island", path: "M 80 290 C 160 220, 205 105, 330 128 S 510 235, 650 180 S 820 105, 930 160", marker: { x: 330, y: 128 } },
-    { id: "island-placeholder-02", status: "placeholder", name: "WATERFRONT LINE / PLACEHOLDER", group: "island", path: "M 70 340 C 200 285, 260 360, 380 300 S 580 215, 720 280 S 840 350, 950 300", marker: { x: 720, y: 280 } },
-    { id: "island-placeholder-03", status: "placeholder", name: "CITY CROSSING / PLACEHOLDER", group: "island", path: "M 160 105 C 250 165, 290 250, 420 220 S 560 125, 690 155 S 790 250, 880 235", marker: { x: 560, y: 125 } },
+    { id: "saturday-social-5k", status: "confirmed", name: "SATURDAY SOCIAL / 5K", group: "island", distanceKm: 5, meetingPoint: "PADEL X LAGOS", sourceFile: "/routes/saturday-social-5k.gpx", path: "M 40.0 344.9 L 45.0 349.6 L 44.6 365.4 L 59.5 379.5 L 88.5 380.0 L 250.8 211.4 L 289.4 187.6 L 290.6 136.7 L 319.9 40.0 L 353.3 122.3 L 369.5 66.9 L 390.1 116.2 L 407.0 129.0 L 405.9 103.0 L 413.8 92.4 L 517.5 64.0 L 534.8 68.1 L 553.2 90.9 L 591.2 169.3 L 609.7 227.1 L 615.4 226.6 L 616.4 239.2 L 755.4 184.5 L 960.0 183.9", marker: { x: 407, y: 129 } },
+    { id: "saturday-social-10k", status: "confirmed", name: "SATURDAY SOCIAL / 10K", group: "island", distanceKm: 10, meetingPoint: "FALOMO SQUARE GARDEN", sourceFile: "/routes/saturday-social-10k.gpx", path: "M 40.0 265.8 L 48.9 293.9 L 70.4 195.3 L 57.9 153.0 L 81.9 45.7 L 112.5 141.2 L 137.7 166.2 L 136.0 115.7 L 147.8 95.0 L 311.5 40.0 L 355.1 92.1 L 424.1 280.8 L 439.1 356.4 L 448.1 357.4 L 449.1 380.0 L 655.7 273.9 L 960.0 272.5", marker: { x: 148, y: 95 } },
+    { id: "tuesday-social-12k", status: "confirmed", name: "TUESDAY SOCIAL / 12K", group: "island", distanceKm: 12, meetingPoint: "BG MART", sourceFile: "/routes/tuesday-social-12k.gpx", path: "M 960.0 56.9 L 944.7 48.5 L 919.8 48.8 L 922.1 42.7 L 888.0 40.0 L 786.9 53.8 L 611.1 95.5 L 661.9 172.9 L 490.9 211.6 L 494.5 219.3 L 460.1 186.4 L 401.2 200.2 L 350.0 206.9 L 260.9 181.5 L 205.2 181.3 L 188.7 186.4 L 189.0 203.3 L 210.8 252.5 L 170.9 261.9 L 170.1 265.3 L 140.8 259.4 L 110.6 301.5 L 88.8 293.6 L 75.0 301.8 L 82.1 305.7 L 69.7 311.8 L 77.9 327.0 L 76.9 337.9 L 55.2 372.7 L 46.2 380.0 L 40.0 379.9", marker: { x: 189, y: 186 } },
   ],
   mainland: [
-    { id: "mainland-placeholder-01", status: "placeholder", name: "NORTH LOOP / PLACEHOLDER", group: "mainland", path: "M 80 190 C 190 120, 280 125, 380 190 S 560 300, 700 220 S 835 120, 950 175", marker: { x: 380, y: 190 } },
-    { id: "mainland-placeholder-02", status: "placeholder", name: "NEIGHBOURHOOD RUN / PLACEHOLDER", group: "mainland", path: "M 75 310 C 180 350, 290 310, 380 250 S 520 105, 650 160 S 810 305, 945 285", marker: { x: 650, y: 160 } },
-    { id: "mainland-placeholder-03", status: "placeholder", name: "GREEN LINE / PLACEHOLDER", group: "mainland", path: "M 130 90 C 220 185, 330 180, 445 110 S 625 70, 730 145 S 850 250, 920 230", marker: { x: 445, y: 110 } },
+    { id: "tuesday-social-5k", status: "confirmed", name: "TUESDAY SOCIAL / 5K", group: "mainland", distanceKm: 5, meetingPoint: "UNILAG SPORTS CENTER", sourceFile: "/routes/Tuesday-social-5k.gpx", path: "M 489.1 40.0 L 497.6 41.5 L 519.0 41.0 L 564.4 44.1 L 864.9 51.1 L 877.4 52.4 L 828.4 63.8 L 818.9 74.1 L 856.2 222.5 L 876.6 259.8 L 870.8 272.3 L 875.2 285.4 L 960.0 298.9 L 927.8 300.9 L 828.4 302.2 L 715.6 299.5 L 691.5 304.1 L 453.9 299.0 L 401.3 309.1 L 230.1 317.9 L 257.2 319.5 L 262.4 321.2 L 238.2 321.8 L 165.4 320.3 L 122.6 328.6 L 127.0 333.3 L 100.0 340.8 L 40.0 353.2 L 93.4 357.0 L 257.9 361.1 L 297.4 363.8 L 306.9 369.5 L 257.9 378.2 L 237.5 380.0 L 223.5 380.0", marker: { x: 454, y: 299 } },
   ],
 };

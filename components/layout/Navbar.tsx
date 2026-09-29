@@ -8,6 +8,7 @@ import Button from "@/components/ui/Button";
 import ArrowUpRight from "@/components/ui/ArrowUpRight";
 import Wordmark from "./Wordmark";
 import { NAVIGATION } from "@/lib/constants";
+import { membershipLink } from "@/data/links";
 import { useNavbarTheme } from "@/lib/animation/useNavbarTheme";
 
 export default function Navbar() {
@@ -55,7 +56,7 @@ function Navigation({ pathname }: { pathname: string }) {
             ))}
           </ul>
         </nav>
-        <Button href="/runs" arrow className="site-header__cta">JOIN A RUN</Button>
+        <Button href={membershipLink.href} target="_blank" rel="noreferrer" arrow className="site-header__cta">BECOME A MEMBER</Button>
         <button ref={toggle} type="button" className="menu-toggle" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>
           <span>{open ? "Close" : "Menu"}</span>
           <span className="menu-toggle__symbol" aria-hidden="true" />
@@ -82,7 +83,7 @@ function Navigation({ pathname }: { pathname: string }) {
               ))}
             </ul>
           </nav>
-          <Button href="/runs" arrow className="mobile-navigation__cta" onClick={() => setOpen(false)}>JOIN A RUN</Button>
+          <Button href={membershipLink.href} target="_blank" rel="noreferrer" arrow className="mobile-navigation__cta" onClick={() => setOpen(false)}>BECOME A MEMBER</Button>
         </Container>
       </div>
     </header>

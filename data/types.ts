@@ -103,6 +103,9 @@ export type RouteGroup = "island" | "mainland";
 export interface RunRoute extends ContentRecord {
   name: string;
   group: RouteGroup;
+  distanceKm: number;
+  meetingPoint: string;
+  sourceFile: string;
   path: string;
   marker: { x: number; y: number };
 }

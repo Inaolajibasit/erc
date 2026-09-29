@@ -249,3 +249,11 @@
 - [ ] Image compression
 - [ ] Video optimisation
 - [x] Mobile navigation backdrop and outside-tap dismissal
+- [x] Import supplied GPX route geometry into Run Your City
+- [x] Add ERC Instagram-supplied links and link hub
+- [x] Reduce homepage to the Moving Lagos content boundary
+- [x] Move Run Your City route map to the Runs page
+- [x] Add confirmed Run Rave event details
+- [x] Add confirmed Nigeria Independence Day Run details
+- [x] Add restrained homepage opening sequence
+- [x] Remove homepage opening sequence after review

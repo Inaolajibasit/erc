@@ -19,8 +19,8 @@ export default function Footer() {
               {NAVIGATION.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="nav-link">{label}</Link></li>
               ))}
-              <li><a href="#" className="nav-link">Instagram</a></li>
-              <li><a href="#" className="nav-link">Contact</a></li>
+              <li><Link href="/links" className="nav-link">Links</Link></li>
+              <li><a href="https://strava.app.link/u6n5fAmFIQb" target="_blank" rel="noreferrer" className="nav-link">Strava</a></li>
             </ul>
           </nav>
           <div className="site-footer__action"><Button href="/runs" arrow>JOIN A RUN</Button></div>
